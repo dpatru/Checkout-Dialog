@@ -1,0 +1,35 @@
+$(document).ready(function(){
+
+  $('#get_token').live('submit', get_token_form_handler);
+
+});
+
+function get_token_form_handler(){
+  var k = $('[name=merchant_key]', this).value;
+  var i = $('[name=merchant_id]', this).value;
+  alert(k+':'+i);
+
+  return false;  
+};
+
+function f(){
+
+  // token set globally
+  alert(token);
+  if (!$) alert('no $');
+  var channel = new goog.appengine.Channel(token);
+  var handler = {
+    onopen: function(){ alert('hello'); },
+    onmessage: function(m){add_to_body(m.data);},
+    onerror: function(e){$('body').append($('div').text('Error\n'+e.code+': '+e.description));},
+    onclose: function(){ alert('bye!');}
+  };
+  var socket = channel.open(handler);
+};
+
+function add_to_body(m){
+    var t = $.map(m.split('\n'), function(x){
+		      return $('<div>').text(x).html();
+	   });
+    $('body').append($('<div>').html(t.join('<br>')));
+};

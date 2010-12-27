@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src='/_ah/channel/jsapi'></script>
+    <title>Checkout Dialog</title>
+  </head>
+  <body>
+    <div id="instructions">
+      <h1>Instructions</h1>
+      <div>
+	Enter your merchant id and key for your <em>sandbox</em> account.
+      </div>
+    </div>
+
+    <form id="get_token" method="post">
+      <label>Merchant ID <input name="merchant_id" required value=""></label>
+      <label>Merchant Key <input name="merchant_key" required value="" ></label>
+      <input type="submit" value="Register"/>
+    </form>
+
+    <div id="main" class="hidden">
+      <form id="buy" action="https://sandbox.google.com/checkout/api/checkout/v2/checkoutForm/Merchant/{{merchant_id}}" target="_new" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top" accept-charset="utf-8">
+	<input name="item_name_1" type="hidden" value="Sample item"/>
+	<input name="item_description_1" type="hidden" value="Sample description."/>
+	<input name="item_quantity_1" type="hidden" value="1"/>
+	<input name="item_price_1" type="hidden" value="5.0"/>
+	<input name="item_currency_1" type="hidden" value="USD"/>
+	<input name="_charset_" type="hidden" value="utf-8"/>
+	<input id="buynow_button" alt="" src="https://sandbox.google.com/checkout/buttons/buy.gif?merchant_id={{merchant_id}}&amp;w=121&amp;h=44&amp;style=white&amp;variant=text&amp;loc=en_US" type="image"/>
+      </form>
+
+      <h1 id="send_to_google_checkout_title">Send to Google Checkout</h1>
+      <form id="send_to_google_checkout" target="_new">
+	<label>URL <input name="url" type="url"></label>
+	<!-- <label>Content-Type <input name="content_type" value="application/xml; charset=UTF-8"/></label> -->
+	<label class="body_label">Body <textarea id="msg" name="msg" placeholder="type your message here"></textarea></label>
+	<input type="hidden" name="merchant_key"/>
+	<input type="hidden" name="merchant_id"/>
+	<input type="submit" value="Send to google checkout"/>
+      </form>
+      <h1 id="dialog_title">Dialog</h1>
+      <div id="dialog"></div>
+
+    </div>
+
+    <script src="codemirror/js/highlight.js"></script>
+    <script src="codemirror/js/stringstream.js"></script>
+    <script src="codemirror/js/tokenize.js"></script>
+    <script src="codemirror/js/parsexml.js"></script>
+    <script src="codemirror/js/codemirror.js"></script>
+    <link rel="stylesheet" type="text/css" href="codemirror/css/xmlcolors.css"/> 
+
+    <script src="/js/listener.js"></script>
+  </body>
+</html>
