@@ -61,7 +61,7 @@ function get_socket(token){
     onopen: function(){ alert('opening channel'); },
     onmessage: function(m){
 	var ms = m.data.split('\n', 2);
-	add_to_dialog(ms[1], 'Received from '+ms[0]);
+	add_to_dialog(ms[1], ms[0]);
     },
     onerror: function(e){
 	add_to_dialog(e.description, 'Error getting token '+e.code);
