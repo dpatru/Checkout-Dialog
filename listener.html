@@ -35,8 +35,11 @@
       <h1 id="send_to_google_checkout_title">Send to Google Checkout</h1>
       <form id="send_to_google_checkout" target="_new">
 	<label>URL <input name="url" type="url"></label>
-	<!-- <label>Content-Type <input name="content_type" value="application/xml; charset=UTF-8"/></label> -->
-	<label class="body_label">Body <textarea id="msg" name="msg" placeholder="type your message here"></textarea></label>
+	<label class="body_label">
+	  Body 
+	  <textarea id="msg" name="msg" placeholder="type your message here">
+	  </textarea>
+	</label>
 	<input type="hidden" name="merchant_key"/>
 	<input type="hidden" name="merchant_id"/>
 	<input type="submit" value="Send to google checkout"/>

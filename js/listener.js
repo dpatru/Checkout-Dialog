@@ -79,7 +79,7 @@ function random_char(){
 };
 
 function random_string(){
-  var a=[]
+  var a=[];
   for (var i=0; i< 20; i++)
       a[i]=random_char();
   return a.join('');
