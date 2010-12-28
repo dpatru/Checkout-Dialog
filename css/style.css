@@ -489,6 +489,11 @@ form#send_to_google_checkout textarea, form#send_to_google_checkout .CodeMirror-
   border: 1px solid blue;
   padding: .1em;
 }
+form#send_to_google_checkout input[type=submit] {
+  text-align: left;
+  display: block;
+  width: 15em;
+}
 #dialog > div {
   margin-bottom: 1.5em;
   border-top: 1px solid gray;
