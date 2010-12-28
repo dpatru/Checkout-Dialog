@@ -16,9 +16,6 @@ $(document).ready(function(){
      $(this).attr('title', 'Click to toggle.');
    }).hover();
   $('h1').live('click', function(){$(this).toggleClass('hide_next');});
-
-
-		      //  $('#dialog > div > h1').live('click', function(){$(this).next().toggle();});
 		      
 });
 
@@ -62,7 +59,10 @@ function get_socket(token){
   var channel = new goog.appengine.Channel(token);
   var handler = {
     onopen: function(){ alert('opening channel'); },
-    onmessage: function(m){add_to_dialog(m.data, 'Getting socket');},
+    onmessage: function(m){
+	var ms = m.split('\n', 1);
+	add_to_dialog(ms[1], 'Received from '+ms[0]);
+    },
     onerror: function(e){
 	add_to_dialog(e.description, 'Error getting token '+e.code);
     },
