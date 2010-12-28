@@ -51,7 +51,7 @@ function get_token_form_cb(token){
   if (!get_socket(token)) return;
   $('form#get_token').addClass('hidden');
   $('#main').removeClass('hidden');
-  $('#instructions').html('<h1>Instructions</h1><ol><li>Set <a href="https://sandbox.google.com/checkout/sell/settings?section=Integration">google checkout</a> callback to http://'+location.host+'/'+MERCHANT_ID+'/'+MERCHANT_KEY+ '. </li><li>Uncheck box requiring signed carts.</li><li>Check Notification Serial Number radio button.</li></ol>');
+  $('#instructions').html('<h1>Instructions</h1><div><ol><li>Set <a href="https://sandbox.google.com/checkout/sell/settings?section=Integration">google checkout</a> callback to http://'+location.host+'/'+MERCHANT_ID+'/'+MERCHANT_KEY+ '. </li><li>Uncheck box requiring signed carts.</li><li>Check Notification Serial Number radio button.</li></ol></div>');
   particularize();
 };
   
