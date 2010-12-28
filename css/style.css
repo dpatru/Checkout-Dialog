@@ -456,7 +456,7 @@ h1.hide_next {
 h1.hide_next:after {
   content: " . . .";
 }
-.hide_next ~ * {
+.hide_next ~ div, .hide_next ~ form {
   display: none;
 }
 form {
