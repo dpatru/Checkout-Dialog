@@ -60,7 +60,7 @@ function get_socket(token){
   var handler = {
     onopen: function(){ alert('opening channel'); },
     onmessage: function(m){
-	var ms = m.split('\n', 1);
+	var ms = m.split('\n', 2);
 	add_to_dialog(ms[1], 'Received from '+ms[0]);
     },
     onerror: function(e){
