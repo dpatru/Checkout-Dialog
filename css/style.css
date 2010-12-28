@@ -413,6 +413,10 @@ h7 {
 #footer a.selected {
   color: red;
 }
+footer {
+  border-top: 1px solid gray;
+  margin-top: 1.5em;
+}
 table.help th {
   background: #ffffaa;
 }
