@@ -71,7 +71,7 @@ class GoogleCheckoutListener(webapp.RequestHandler):
     self.response.headers['Content-Type'] = 'application/xml; charset=UTF-8'
     self.response.out.write(response)
     message = '''
-%s. Just got serial number notification: %s. Responded with:
+%s. Just got serial number notification: %s.
 %s'''%(request.url, request.body, pretty_print_xml(response))
     channel.send_message(token_key, message)
   def get(self, i, k):
